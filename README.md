@@ -5,7 +5,7 @@ This repository contains the code used to reproduce the denoising, deblurring, a
 
 #Folder Structure
 
-│
+
 
 ├── denoising_test.py
 
@@ -17,7 +17,7 @@ This repository contains the code used to reproduce the denoising, deblurring, a
 
 ├── utils.py
 
-│
+
 
 ├── images/  # input images for each 
 
@@ -26,22 +26,30 @@ This repository contains the code used to reproduce the denoising, deblurring, a
 └── outputs/     # results saved here
 
 #All required Python packages are listed in requirements.txt. Install them with
+
 pip install --upgrade pip
+
 pip install -r requirements.txt
 
-##Running the Code
+
+#Running the Code
 
 Run each script from inside OUR_codes/:
 
 #Denoising
+
 python denoising_test.py
 
 #Deblurring
+
 python pnp_deblurring.py
 
 #Super-Resolution
+
 python pnp_superresolution.py
 
 
 #Outputs will be saved automatically inside:
+
 outputs/
+
