@@ -8,7 +8,7 @@ import cv2
 import torch
 from skimage.metrics import peak_signal_noise_ratio as psnr_metric
 from skimage.metrics import structural_similarity as ssim_metric
-from utils import infer_patchwise_tukey_batched as denoise
+from utils import denoising_image as denoise
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 torch.set_grad_enabled(False)
