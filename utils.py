@@ -48,7 +48,7 @@ def denoising_image(
     B, C, h, w = noisy.shape
     device, dtype = noisy.device, noisy.dtype
     ps, s = patch_size, stride
-    assert ps % s == 0, 
+    assert ps % s == 0, "patch_size must be a multiple of stride"
 
     overlap = ps - s
 
