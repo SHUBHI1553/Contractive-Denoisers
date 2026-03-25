@@ -5,7 +5,7 @@ import os
 import numpy as np
 import torch
 import cv2
-from utils import infer_patchwise_tukey_batched as denoise
+from utils import denoising_image as denoise
 from skimage.metrics import peak_signal_noise_ratio as psnr_metric
 from skimage.metrics import structural_similarity as ssim_metric
 
