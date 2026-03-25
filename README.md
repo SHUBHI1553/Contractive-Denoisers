@@ -7,9 +7,9 @@ This repository provides the implementation used to reproduce the denoising, deb
 
 ├── denoising_test.py        # Denoising script
 
-├── sparse_deblur.py        # Deblurring script
+├── pnp_deblurring.py        # Deblurring script
 
-├── superresolution.py      # Super-resolution script
+├── pnp_superresolution.py      # Super-resolution script
 
 ├── model.py                # Model architecture
 
