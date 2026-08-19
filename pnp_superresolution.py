@@ -71,7 +71,7 @@ def crop_to_multiple(img, m=8):
 # ==========================================================
 def pnp_fbs_superresolution(model, im_input, fx, fy, mask,
                             patch_width=64, stride=8, batch_size=500,
-                            rho=2.0, maxitr=20):
+                            rho=1.0, maxitr=20):
 
     H_lr, W_lr = im_input.shape[:2]
     H_hr, W_hr = int(H_lr / fy), int(W_lr / fx)
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     mask = np.outer(kernel, kernel.T)
     r = (mask.shape[0] - 1) // 2
 
-    im_pad = cv2.copyMakeBorder(im_orig, r, r, r, r, borderType=cv2.BORDER_WRAP)
+    im_pad = cv2.copyMakeBorder(im_orig, r, r, r, r, borderType=cv2.BORDER_REFLECT)
     im_blur = cv2.filter2D(im_pad, -1, mask)[r:r+m, r:r+n, :]   
 
     # ---- Downsample + noise ----
@@ -147,12 +147,12 @@ if __name__ == "__main__":
         fx=1/K, fy=1/K,
         mask=mask,
         patch_width=64, stride=8, batch_size=500,
-        rho=2.0, maxitr=20
+        rho=1.0, maxitr=20
     )
 
     out = np.clip(out, 0, 1)
 
-    # ---- Compute metrics (EXACT SAME) ----
+    # ---- Compute metrics  ----
     ps = psnr_metric(im_orig, out, data_range=1.0)
     ss = ssim_metric(im_orig, out, data_range=1.0, channel_axis=-1)
 
