@@ -12,7 +12,8 @@ from utils import denoising_image as denoise
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 torch.set_grad_enabled(False)
-
+np.random.seed(0)
+torch.manual_seed(0)
 
 # ==========================================================
 # Load OUR model 
@@ -70,7 +71,7 @@ def crop_to_multiple(img, m=8):
 # ==========================================================
 def pnp_fbs_superresolution(model, im_input, fx, fy, mask,
                             patch_width=64, stride=8, batch_size=500,
-                            rho=1.0, maxitr=20):
+                            rho=2.0, maxitr=20):
 
     H_lr, W_lr = im_input.shape[:2]
     H_hr, W_hr = int(H_lr / fy), int(W_lr / fx)
@@ -146,7 +147,7 @@ if __name__ == "__main__":
         fx=1/K, fy=1/K,
         mask=mask,
         patch_width=64, stride=8, batch_size=500,
-        rho=1.0, maxitr=20
+        rho=2.0, maxitr=20
     )
 
     out = np.clip(out, 0, 1)
