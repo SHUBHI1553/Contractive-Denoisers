@@ -11,7 +11,8 @@ from skimage.metrics import structural_similarity as ssim_metric
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 torch.set_grad_enabled(False)
-
+np.random.seed(0)
+torch.manual_seed(0)
 # ==========================================================
 #  SINGLE IMAGE PATH
 # ==========================================================
@@ -159,7 +160,7 @@ cv2.imwrite(os.path.join(save_root, "GroundTruth.png"), (im_orig[...,::-1]*255).
 # ==========================================================
 out = pnp_fbs_deblur(
     model, im_noisy, mask,
-    rho=1.0, sigma=sigma, maxitr=30
+    rho=2.0, sigma=sigma, maxitr=30
 )
 
 out = np.clip(out, 0, 1)
