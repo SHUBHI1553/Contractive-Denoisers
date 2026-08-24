@@ -9,7 +9,8 @@ from torchvision.utils import save_image
 from skimage.metrics import peak_signal_noise_ratio as psnr_metric
 from skimage.metrics import structural_similarity as ssim_metric
 from utils import denoising_image
-
+np.random.seed(0)
+torch.manual_seed(0)
 
 # ------------------------------------------
 # Ours Model Builder
