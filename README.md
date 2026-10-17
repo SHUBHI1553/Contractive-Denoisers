@@ -1,6 +1,6 @@
 # Provably Contractive and High-Quality Denoisers for Convergent Restoration
 
-**Official PyTorch Implementation | BMVC 2026 (Oral Presentation)**
+**Official PyTorch Implementation | BMVC 2026 (Oral)**
 
 **Authors:** Shubhi Shukla and Pravin Nair
 
